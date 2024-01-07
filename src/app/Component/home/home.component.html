@@ -1,0 +1,342 @@
+<div class="sectio100vh100vw    " [ngClass]="screenWidth<700?'':divToShowText=='home'?'svgshape ':''"
+   style=" background-color: #F9FAFF; overflow-x: hidden !important;" >
+    <div class="container " >
+        <nav class="navbar navbar-expand-lg  fixed-top" [ngClass]="divToShowText!='home'?'navcolor':''" >
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <h3>
+                        Portfolio
+                    </h3>
+                    </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel" style="width: 50%;">
+                    <div class="offcanvas-header">
+                        <h3 class="offcanvas-title" id="offcanvasNavbarLabel">
+                            
+                            Portfolio</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" (click)="divToShow('home')"  data-bs-dismiss="offcanvas"
+                                data-bs-target="#offcanvasNavbar">
+                                    <h4>Home</h4>
+                                </a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" (click)="divToShow('project')" data-bs-dismiss="offcanvas"
+                                data-bs-target="#offcanvasNavbar">
+                                    <h4>Projects</h4>
+                                </a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" (click)="divToShow('about')"  data-bs-dismiss="offcanvas"
+                                data-bs-target="#offcanvasNavbar">
+                                    <h4>About</h4>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" (click)="divToShow('contact')"  data-bs-dismiss="offcanvas"
+                                data-bs-target="#offcanvasNavbar">
+                                    <h4>Contact Me</h4>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div style="padding-top: 20%; " *ngIf="divToShowText=='home'">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="row " [ngClass]="screenWidth<700?'paddingmobile':''">
+                        <div class="col-12 slideInleft1">
+                            <p class="smallTitle">
+                                frontend angular development
+                            </p>
+                        </div>
+                        <div class="col-12 slideInleft2">
+                            <h1 class="h1">
+                                Hello, my name
+                                is
+                                <br>Omar Elmenshawy
+                            </h1>
+                        </div>
+                        <div class="col-12 about fadeinforward">
+                            Hi, Welcome To my Portfolio I hope you enjoy for 
+                            more info download my cv or contact me 
+                            Have a Great Day.
+                            <span>
+                                <img src="../../../assets/img/like.png" width="25px"/>
+                            </span>
+
+                        </div>
+                        <div class="col-12  slideLeft" style="padding-top: 20px;">
+                            <div class="row">
+                                <div class="col-3">
+                                    <button class="btn buttontext stybtn " (click)="divToShow('project')">
+                                        Project
+                                    </button>
+                                </div>
+                                <div class="col-3">
+                                    <button class="btn buttontext stybtn " (click)="divToShow('about')">
+
+                                        About
+
+                                    </button>
+                                </div>
+
+                                <div class="col-3">
+                                    <button class="btn buttontext stybtn " (click)="divToShow('contact')">
+                                        Contact
+                                    </button>
+                                </div>
+                                <div class="col-3" style="width: fit-content; height: fit-content;">
+                                    <button class="btn buttontext stybtn ">
+                                        <a href="../../../assets/Omar-Ali-Elmenshawy-CV.pdf" download="Omar-Ali-Elmenshawy-CV.pdf"
+                                        style="text-decoration: none; color: white;" >  
+                                            CV
+                                          </a>  
+                                        
+                                    </button>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12  slideTop" *ngIf="screenWidth<700" style="padding: 0px;position: relative; ">
+
+                    <img  src="../../../assets/img/SHAMBORY2.png" width="100%" />
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div style="padding-top: 20%; " *ngIf="divToShowText=='project'">
+            <div class="row" style="padding-bottom: 50px;">
+                <div class="col-12">
+                    <h1
+                        style="text-decoration-line: underline; text-decoration-color: #FDC435; text-decoration-thickness: 5px;">
+                        My Projects</h1>
+                </div>
+                <div class="col-12">
+                    <div class="row  h-100">
+                        <div class="col-12 col-md-12 col-lg-6 "
+                            style=" padding-top: 20px; display: flex; justify-content: center; align-items: center;"
+                            *ngFor="let project of projectList; index as i">
+
+                            <div class="card " *ngIf="i% 2 == 0">
+                                <div class="row">
+                                    <div class="col-6 "
+                                        style="display: flex; justify-content: center; align-items: center;">
+                                        <div class="row p-4 ">
+                                            <div class="col-12">
+                                                <h3>
+                                                    {{project.title}}
+                                                </h3>
+                                            </div>
+                                            <div class="col-12">
+                                                <p style="color: gray;  padding: 0; margin: 0;">
+                                                    {{project.underline}}
+                                                </p>
+                                            </div>
+                                            <div class="col-12">
+                                                <p class="cardText" style="color: rgb(66, 65, 65);">
+                                                    {{project.descreption}}
+                                                </p>
+                                            </div>
+                                            <div class="col-12" style="    padding: 0;">
+                                                <button class="btn buttontext stybtn " (click)="goToLink(project.link)">
+                                                    &nbsp; View Project &nbsp;
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6"
+                                        style="height: 250px; display: flex; justify-content: end; align-items: center; overflow: hidden;">
+                                        <img class="img-fluid"
+                                            style=" height: 250px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border: 1px solid rgb(193, 193, 193);"
+                                            [src]="project.imgSrc" />
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="card " *ngIf="i% 2 != 0">
+                                <div class="row">
+                                    <div class="col-5 text-center"
+                                        style="height: 250px; display: flex; justify-content: start; align-items: center;">
+                                        <img class="img-fluid"
+                                            style="height: 250px; border-top-left-radius: 5px; border-bottom-left-radius: 5px; border: 1px solid rgb(193, 193, 193);"
+                                            [src]="project.imgSrc" />
+                                    </div>
+                                    <div class="col-7  "
+                                        style="display: flex; justify-content: center; align-items: center;">
+                                        <div class="row p-4 ">
+                                            <div class="col-12">
+                                                <h3>
+                                                    {{project.title}}
+                                                </h3>
+                                            </div>
+                                            <div class="col-12">
+                                                <p style="color: gray; padding: 0; margin: 0;">
+                                                    {{project.underline}}
+                                                </p>
+                                            </div>
+                                            <div class="col-12">
+                                                <p class="cardText" style="color: rgb(66, 65, 65);">
+                                                    {{project.descreption}}
+                                                </p>
+                                            </div>
+                                            <div class="col-12" style="    padding: 0;">
+                                                <button class="btn buttontext stybtn " (click)="goToLink(project.link)">
+                                                    &nbsp; View Project &nbsp;
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div style="padding-top: 20%;" *ngIf="divToShowText=='about'">
+            <div class="  " style="padding-bottom: 30px;">
+                <section id=timeline>
+                    <h1>Certificate</h1>
+                    <!-- <p class="leader">All cards must be the same height and width for space calculations on large
+                        screens.</p> -->
+                    <div class="demo-card-wrapper">
+                        <div class="demo-card demo-card--step1">
+                            <div class="head">
+                                <div class="number-box">
+                                    <span>01</span>
+                                </div>
+                                <h2 style="text-transform: capitalize;">graduation</h2>
+                            </div>
+                            <div class="body">
+                                <p>King Faisal University in (Saudi Arabia), Bachelor Degree in
+                                    Computer science
+                                    </p>
+
+                                    <div style="height: 230px; width: 100%; overflow: hidden;">
+                                        <img class="text-center img-thumbnail" style="height: 100%; width: 100%; object-fit: fill;" 
+                                        src="../../../assets/img/Degree.png" alt="Graphic">
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="demo-card demo-card--step2">
+                            <div class="head">
+                                <div class="number-box">
+                                    <span>02</span>
+                                </div>
+                                <h2 style="text-transform: capitalize;"><span class="small">Zayed University</span> 
+                                    URC2020</h2>
+                            </div>
+                            <div class="body">
+                                <p>Participate in “Dell” Technologies
+                                    Graduation Project Competetion Winning In
+                                    “URC2020” In The Top 15 Graduation
+                                    Project Out of 168 In Zayed University (UAE)
+                                    </p>
+
+                                <div style="height: 210px; width: 100%; overflow: hidden;">
+                                    <img class="text-center img-thumbnail" style="height: 100%; width: 100%; object-fit: fill;" 
+                                    src="../../../assets/img/URC.png" alt="Graphic">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="demo-card demo-card--step3">
+                            <div class="head">
+                                <div class="number-box">
+                                    <span>03</span>
+                                </div>
+                                <h2 style="text-transform: capitalize;">Cybersecurity</h2>
+                            </div>
+                            <div class="body">
+                                <p> Introduction to Cybersecurity (Edraak)
+                                </p>
+                                    <div style="height: 230px; width: 100%; overflow: hidden;">
+                                        <img class="text-center img-thumbnail" style="height: 100%; width: 100%; object-fit: fill;" 
+                                        src="../../../assets/img/edrack.png" alt="Graphic">
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="demo-card demo-card--step4">
+                            <div class="head">
+                                <div class="number-box">
+                                    <span>04</span>
+                                </div>
+                                <h2 style="text-transform: capitalize;">Google Mena</h2>
+                            </div>
+                            <div class="body">
+                                <p>Google Developers Roadshow MENA</p>
+
+                                    <div style="height: 230px; width: 100%; overflow: hidden;">
+                                        <img class="text-center img-thumbnail" style="height: 100%; width: 100%; object-fit: fill;" 
+                                        src="../../../assets/img/google.png" alt="Graphic">
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="demo-card demo-card--step5">
+                            <div class="head">
+                                <div class="number-box">
+                                    <span>05</span>
+                                </div>
+                                <h2 style="text-transform: capitalize;">programming contest </h2>
+                            </div>
+                            <div class="body">
+                                <p>Participation in a programming contest held at King Faisal University </p>
+
+                                    <div style="height: 230px; width: 100%; overflow: hidden;">
+                                        <img class="text-center img-thumbnail" style="height: 100%; width: 100%; object-fit: fill;" 
+                                        src="../../../assets/img/contest.png" alt="Graphic">
+                                    </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+<!-- 
+<div style="height: 1000px;">
+
+</div> -->
